@@ -18,11 +18,17 @@ venv/
 ENV/
 .venv/
 
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints
+# Flask instance folder (for config files, etc.)
+instance/
+*.db
+*.sqlite3
 
-# PyInstaller
-*.spec
+# Environment variable files
+.env
+.env.*
+
+# Logs
+*.log
 
 # Unit test / coverage reports
 htmlcov/
@@ -45,6 +51,12 @@ dmypy.json
 
 # Pytest
 .pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints
+
+# PyInstaller
+*.spec
 
 # VSCode
 .vscode/
