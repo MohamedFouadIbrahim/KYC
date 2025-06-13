@@ -2,7 +2,7 @@
 from flask import Blueprint, request, jsonify
 import os
 from werkzeug.utils import secure_filename
-from .k import verify_faces
+# from .k import verify_faces
 import sys
 
 main = Blueprint('main', __name__)
