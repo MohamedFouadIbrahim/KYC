@@ -30,7 +30,7 @@ UPLOAD_FOLDER = 'uploads'
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-@main.route('/verify', methods=['POST'])
+@app.route('/verify', methods=['POST'])
 def verify():
     passport = request.files.get('passport')
     selfie = request.files.get('selfie')
