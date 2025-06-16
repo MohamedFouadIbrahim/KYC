@@ -2,7 +2,8 @@
 from flask import Blueprint, request, jsonify
 import os
 from werkzeug.utils import secure_filename
-from .k import verify_faces
+from .k import verify_faces, validate_image
+
 import sys
 
 main = Blueprint('main', __name__)
@@ -25,6 +26,15 @@ def verify():
 
     passport.save(passport_path)
     selfie.save(selfie_path)
+
+    valid_passport, msg_passport = validate_image(passport_path)
+    valid_selfie, msg_selfie = validate_image(selfie_path)
+
+    if not valid_passport or not valid_selfie:
+        return jsonify({
+            'passport_validation': msg_passport,
+            'selfie_validation': msg_selfie
+        }), 400
 
     try:
         result = verify_faces(passport_path, selfie_path)
