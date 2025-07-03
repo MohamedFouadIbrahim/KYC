@@ -17,9 +17,9 @@ def validate_image(image_path):
             return False, "Cannot read image"
 
         # Detect faces using OpenCV or DeepFace
-        faces = DeepFace.extract_faces(img_path=image_path, enforce_detection=True)
-        if len(faces) != 1:
-            return False, f"Image must contain exactly one face, found {len(faces)}"
+        # faces = DeepFace.extract_faces(img_path=image_path, enforce_detection=True)
+        # if len(faces) != 1:
+        #     return False, f"Image must contain exactly one face, found {len(faces)}"
 
         return True, "Valid image"
     except Exception as e:
