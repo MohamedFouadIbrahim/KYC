@@ -2,7 +2,7 @@
 from flask import Blueprint, request, jsonify
 import os
 from werkzeug.utils import secure_filename
-from .k import verify_faces, validate_image
+from .k import verify_faces, validate_image, validate_passport
 
 import sys
 
@@ -27,7 +27,7 @@ def verify():
     passport.save(passport_path)
     selfie.save(selfie_path)
 
-    valid_passport, msg_passport = validate_image(passport_path)
+    valid_passport, msg_passport = validate_passport(passport_path)
     valid_selfie, msg_selfie = validate_image(selfie_path)
 
     if not valid_passport or not valid_selfie:
