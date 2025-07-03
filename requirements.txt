@@ -5,3 +5,4 @@ tensorflow==2.16.2
 tf_keras
 flask-cors
 pytesseract
+tesseract-ocr
